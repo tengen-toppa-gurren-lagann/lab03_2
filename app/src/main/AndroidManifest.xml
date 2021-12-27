@@ -12,12 +12,15 @@
         <activity
             android:name=".ActivityAbout"
             android:exported="false" />
+        <!--Для правильной работы Navigate Up в активностях должна быть указана родительская активность-->
         <activity
             android:name=".Activity3"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Activity2" />
         <activity
             android:name=".Activity2"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
