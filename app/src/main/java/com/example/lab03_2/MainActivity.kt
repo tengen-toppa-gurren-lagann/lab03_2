@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : BaseActivity(R.layout.activity_1) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +26,15 @@ abstract class BaseActivity(private val layoutResID: Int) : AppCompatActivity() 
         bnToFirst = findViewById(R.id.btn2first)
         bnToSecond = findViewById(R.id.btn2second)
         bnToThird = findViewById(R.id.btn2third)
-        val navBottom : BottomNavigationView = findViewById<View>(R.id.nav_bottom) as BottomNavigationView
-        navBottom.setOnNavigationItemReselectedListener {
-           startActivity(Intent(applicationContext, ActivityAbout::class.java))
+        val navBottom : NavigationBarView = findViewById<View>(R.id.nav_bottom) as NavigationBarView
+        navBottom.setOnItemSelectedListener {
+           when (it.itemId) {
+               R.id.menu_about -> {
+                   startActivity(Intent(applicationContext, ActivityAbout::class.java))
+                   true
+               }
+               else -> {false}
+           }
         }
     }
 }

@@ -14,6 +14,6 @@ class Activity2 : BaseActivity(R.layout.activity_2) {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == 1) { finish() }
+        if (resultCode == RESULT_FIRST_USER) { finish() }
     }
 }
